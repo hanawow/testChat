@@ -234,7 +234,7 @@
 					// Check if Lightning Out has already been loaded.
 					if(window.$Lightning) {
 						resolve("Lightning Out is already loaded on this page.");
-					} else if(typeof $A !== "undefined" && $A.get("$Site")) {
+					} else if(typeof $A !== "undefined" && typeof window.$A.get === "function" && $A.get("$Site")) {
 						resolve("Communities context does not require Lightning Out to use Embedded Service.");
 					} else if(baseCoreURL) {
 						// Load Lightning Out.
@@ -363,7 +363,7 @@
 								}
 							)
 						);
-					} else if(typeof $A !== "undefined" && $A.get("$Site")) {
+					} else if(typeof $A !== "undefined" && typeof window.$A.get === "function" && $A.get("$Site")) {
 						// This event is handled in embeddedServiceChannelMenuController.js.
 						window.dispatchEvent(new CustomEvent("embeddedServiceCreateSidebar", {
 							detail: {
